@@ -175,6 +175,8 @@ class MovePlugin(object):
                     except Exception as err:
                         log.error(err.message)
 
+            #overwrite entry location key so that successive plugins will have the correct file location
+            entry['location'] = dst
             entry['output'] = dst
             if 'clean_source' in config:
                 if not os.path.isdir(src):
